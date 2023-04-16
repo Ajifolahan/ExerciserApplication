@@ -39,7 +39,9 @@ class SearchFragment : Fragment() {
         searchButton.setOnClickListener {
             //         CAMRYN---UNCOMMENT THE BELOW WHEN YOU'RE TRYING TO NAVIGATE FROM SEARCH TO RESULT
             //ALSO PLEASE TRY TO MAKE AN TOAST OR MESSAGE TO SHOW WHEN THERES NO RESULT FOR USER'S OPTIONS IN THE RESULT FRAGMENT
-            //  view.findNavController().navigate(R.id.action_searchFragment_to_resultFragment)
+
+            val navController = view.findNavController()
+
             if (selectedOption == "No selection" && selectedOption2 == "No selection" && selectedOption3 == "No selection") {
                 //if there are no selections, show a toast
                 Toast.makeText(context, "Please enter at least one option to proceed", Toast.LENGTH_LONG).show()
@@ -51,25 +53,9 @@ class SearchFragment : Fragment() {
                 val apiInterface = options?.let { it1 -> APiInterface.create().getExercises(it1) }
 
                 Toast.makeText(context, "Getting Response", Toast.LENGTH_SHORT).show()
-                apiInterface?.enqueue(object : Callback<ArrayList<ExerciseItem?>?> {
-                    override fun onResponse(
-                        call: Call<ArrayList<ExerciseItem?>?>?,
-                        response: Response<ArrayList<ExerciseItem?>?>
-                    ) {
-                        Log.d("Main activity", response.message())
-                        Log.d("Main activity", response.headers().toString())
-                        Log.d("Main activity", response.body().toString())
-                    }
-
-                    override fun onFailure(call: Call<ArrayList<ExerciseItem?>?>, t: Throwable) {
-                        t.message?.let { Log.d("onFailure", it) }
-                        Toast.makeText(
-                            context,
-                            "Error on API call. Please specify different options.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
+                //somehow add options here
+                val action = SearchFragmentDirections.actionSearchFragmentToResultFragment()
+                view.findNavController().navigate(action)
             }
         }
         return view

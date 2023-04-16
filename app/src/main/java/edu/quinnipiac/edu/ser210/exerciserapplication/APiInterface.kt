@@ -9,14 +9,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 interface APiInterface {
 
     // GET endpoint for retrieving recipes
-    @Headers(BuildConfig.api_key, "X-RapidAPI-Host:exercises-by-api-ninjas.p.rapidapi.com")
     @GET("/v1/exercises")
+    @Headers(BuildConfig.api_key, "X-RapidAPI-Host:exercises-by-api-ninjas.p.rapidapi.com")
     fun getExercises(
         @QueryMap options: Map<String, String>) : Call<ArrayList<ExerciseItem?>?>?
 

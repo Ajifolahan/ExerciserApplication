@@ -25,5 +25,18 @@
         android:id="@+id/resultFragment"
         android:name="edu.quinnipiac.edu.ser210.exerciserapplication.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="edu.quinnipiac.edu.ser210.exerciserapplication.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="exercise_Id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
