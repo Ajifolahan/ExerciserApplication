@@ -29,6 +29,15 @@
         <action
             android:id="@+id/action_resultFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <argument
+            android:name="selection"
+            app:argType="string" />
+        <argument
+            android:name="selection2"
+            app:argType="string" />
+        <argument
+            android:name="selection3"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

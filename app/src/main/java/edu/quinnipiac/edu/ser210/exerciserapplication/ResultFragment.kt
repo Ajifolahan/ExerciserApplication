@@ -21,6 +21,9 @@ import retrofit2.Response
 class ResultFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var recyclerAdapter: RecyclerAdapter
+    var selectedOption = ""
+    var selectedOption2 = ""
+    var selectedOption3 = ""
 
     // Retrieve the message passed from the previous fragment
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +33,10 @@ class ResultFragment : Fragment() {
             Log.e("ResultFragment", "ResultFragment did not receive exercise id")
             return
         }
-        //set variable for option mutable app
+        selectedOption = ResultFragmentArgs.fromBundle(bundle).selection
+        selectedOption2 = ResultFragmentArgs.fromBundle(bundle).selection2
+        selectedOption3 = ResultFragmentArgs.fromBundle(bundle).selection3
+
     }
 
     // Inflate the layout for this fragment
@@ -50,15 +56,19 @@ class ResultFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerAdapter
 
-        // Call the API to retrieve the list of recipes based on the user's search input
-        //val apiInterface = options?.let { it1 -> APiInterface.create().getExercises(it1) }
-        /*if (apiInterface != null) {
+        val options = mutableMapOf<String, String>()
+        addOptionToMap(selectedOption, "type", options)
+        addOptionToMap(selectedOption2, "muscle", options)
+        addOptionToMap(selectedOption3, "difficulty", options)
+
+        val apiInterface = APiInterface.create().getExercises(options)
+        if (apiInterface != null) {
             apiInterface.enqueue(object : Callback<ArrayList<ExerciseItem?>?>{
                 override fun onResponse(
                     call: Call<ArrayList<ExerciseItem?>?>,
                     response: Response<ArrayList<ExerciseItem?>?>
                 ) {
-                    // Set the retrieved list of recipes to the adapter
+                    // Set the retrieved list of exercises to the adapter
                     if (response?.body() != null) {
                         recyclerAdapter.setExerciseListItems(response?.body() !! as ArrayList<ExerciseItem>)
                     }
@@ -71,8 +81,16 @@ class ResultFragment : Fragment() {
                 }
 
             })
-        }*/
+        }
 
+
+
+    }
+
+    private fun addOptionToMap(option: String?, key: String, options: MutableMap<String, String>) {
+        if (option != null && option != "No selection") {
+            options[key] = option
+        }
     }
 
 }
