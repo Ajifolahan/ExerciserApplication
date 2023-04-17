@@ -66,30 +66,30 @@ class DetailsFragment : Fragment() {
 
 
         // Fetch an image of the recipe from the Google Custom Search API using Volley
-//        fetchData(recipeList.get(recipe_id).title)
+       fetchData(exerciseList.get(exercise_id).name)
     }
 
     // Fetch an image of the recipe from the Google Custom Search API using Volley
-//    fun fetchData(input: String) {
-//        val url = "https://www.googleapis.com/customsearch/v1?q=$input+recipe&cx=222f6e80dbc7642dc&imgSize=medium&searchType=image&key=${BuildConfig.api_key2}"
-//        val jsonObjectRequest = JsonObjectRequest(
-//            Request.Method.GET, url, null,
-//            { response ->
-//                if (response.getJSONArray("items").length() > 0) {
-//                    // Load the image into the ImageView using Glide
-//                    val imageURL = response.getJSONArray("items").getJSONObject(0).getString("link")
-//                    Glide.with(requireContext()).load(imageURL)
-//                        .apply(RequestOptions().centerCrop())
-//                        .into(binding.itemImage)
-//                }
-//            },
-//            { error ->
-//                Log.d("vol", error.toString())
-//            }
-//        )
-//
-//        // Add the Volley request to the queue
-//        requestQueue.add(jsonObjectRequest)
-//    }
+    fun fetchData(input: String) {
+        val url = "https://www.googleapis.com/customsearch/v1?q=$input+exercise&cx=222f6e80dbc7642dc&imgSize=medium&searchType=image&key=${BuildConfig.api_key2}"
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                if (response.getJSONArray("items").length() > 0) {
+                    // Load the image into the ImageView using Glide
+                    val imageURL = response.getJSONArray("items").getJSONObject(0).getString("link")
+                    Glide.with(requireContext()).load(imageURL)
+                        .apply(RequestOptions().centerCrop())
+                        .into(binding.itemImage)
+                }
+            },
+            { error ->
+                Log.d("vol", error.toString())
+            }
+        )
+
+        // Add the Volley request to the queue
+        requestQueue.add(jsonObjectRequest)
+    }
 
 }
