@@ -19,7 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-// Create an empty ArrayList to hold recipe items
+// Create an empty ArrayList to hold exercise items
 var exerciseList : ArrayList<ExerciseItem> = ArrayList()
 
 class RecyclerAdapter(val context: Context, var navController: NavController) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
@@ -51,8 +51,8 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
     }
 
     // This function sets the exercise list to the given list and updates the UI
-    fun setExerciseListItems(recipe: ArrayList<ExerciseItem>) {
-        exerciseList = recipe
+    fun setExerciseListItems(exercise: ArrayList<ExerciseItem>) {
+        exerciseList = exercise
         notifyDataSetChanged()
     }
 

@@ -71,7 +71,7 @@ class ResultFragment : Fragment() {
                     // Set the retrieved list of exercises to the adapter
                     if (response?.body() != null) {
                         recyclerAdapter.setExerciseListItems(response?.body() !! as ArrayList<ExerciseItem>)
-                        if (ArrayList<ExerciseItem>().size == 0){
+                        if(recyclerAdapter.itemCount == 0) {
                             Toast.makeText(context, "There are no results for your search.\nPlease go back and try again", Toast.LENGTH_LONG).show()
                         }
                     }
