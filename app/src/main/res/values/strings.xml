@@ -11,6 +11,12 @@
     <string name="typePrompt">Exercise Type: </string>
     <string name="typePrompt2">Muscle to train: </string>
     <string name="typePrompt3">Difficulty: </string>
+    <string name="nameLabel">Name: </string>
+    <string name="typeLabel">Type: </string>
+    <string name="muscleLabel">Muscle: </string>
+    <string name="equipmentLabel">Equipment: </string>
+    <string name="difficultyLabel">Difficulty: </string>
+    <string name="instructionLabel">Instruction: </string>
 
 
     <string-array name="type_array">
