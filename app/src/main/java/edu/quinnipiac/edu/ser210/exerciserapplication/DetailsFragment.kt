@@ -1,11 +1,14 @@
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.BasicNetwork
@@ -15,9 +18,17 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentDetailsBinding
+import kotlinx.coroutines.flow.forEach
 
 class DetailsFragment : Fragment() {
 
+    private val viewModel: DetailViewModel by activityViewModels {
+        DetailViewModelFactory(
+            (activity?.application as DetailsApplication).database.workoutDao()
+        )
+    }
+    lateinit var item: Workout
+    private lateinit var searchHistoryDao: WorkoutDao
 
     lateinit var requestQueue: RequestQueue
     var exercise_id: Int = 0
@@ -43,6 +54,17 @@ class DetailsFragment : Fragment() {
         exercise_id = DetailsFragmentArgs.fromBundle(bundle).exerciseId
     }
 
+    private fun addNewItem() {
+            viewModel.addFavorite(
+                binding.name.text.toString(),
+                binding.type.text.toString(),
+                binding.muscle.text.toString(),
+                binding.equipment.text.toString(),
+                binding.difficulty.text.toString(),
+                binding.instruction.text.toString()
+            )
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +72,7 @@ class DetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
+
         return view
     }
 
@@ -64,9 +87,13 @@ class DetailsFragment : Fragment() {
         binding.difficulty.text = exerciseList.get(exercise_id).difficulty
         binding.instruction.text = exerciseList.get(exercise_id).instructions
 
-
         // Fetch an image of the recipe from the Google Custom Search API using Volley
        fetchData(exerciseList.get(exercise_id).name)
+
+        //on click update the database
+        binding.saveButton.setOnClickListener {
+            addNewItem()
+        }
     }
 
     // Fetch an image of the recipe from the Google Custom Search API using Volley
@@ -90,6 +117,14 @@ class DetailsFragment : Fragment() {
 
         // Add the Volley request to the queue
         requestQueue.add(jsonObjectRequest)
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Hide keyboard.
+        val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as
+                InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
+        _binding = null
     }
 
 }

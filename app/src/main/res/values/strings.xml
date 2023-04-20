@@ -17,6 +17,8 @@
     <string name="equipmentLabel">Equipment: </string>
     <string name="difficultyLabel">Difficulty: </string>
     <string name="instructionLabel">Instruction: </string>
+    <string name="save">FAVORITE</string>
+
 
 
     <string-array name="type_array">

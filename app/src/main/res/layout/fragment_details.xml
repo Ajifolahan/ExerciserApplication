@@ -1,133 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp">
-
-
-    <ScrollView
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context = ".DetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_margin="8dp">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/beige"
-            android:orientation= "vertical">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <ImageView
-                android:id="@+id/item_image"
-                android:layout_width="match_parent"
-                android:layout_height="235dp"
-                android:importantForAccessibility="no"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/nameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nameLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/name"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:background="@color/beige"
+                android:orientation= "vertical">
 
-            <TextView
-                android:id="@+id/typeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/typeLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/item_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="235dp"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop" />
 
-            <TextView
-                android:id="@+id/type"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                <TextView
+                    android:id="@+id/nameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nameLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
 
-            `<TextView
-                android:id="@+id/muscleLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/muscleLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />
 
-            <TextView
-                android:id="@+id/muscle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />`
+                <TextView
+                    android:id="@+id/typeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/typeLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/equipmentLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/equipmentLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />
 
-            <TextView
-                android:id="@+id/equipment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                    <TextView
+                    android:id="@+id/muscleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/muscleLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/difficultyLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/difficultyLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/muscle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />`
 
-            <TextView
-                android:id="@+id/difficulty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                <TextView
+                    android:id="@+id/equipmentLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/equipmentLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/instructionLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/instructionLabel"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/equipment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />
 
-            <TextView
-                android:id="@+id/instruction"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                <TextView
+                    android:id="@+id/difficultyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/difficultyLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
 
-        </LinearLayout>
-    </ScrollView>
-</com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/difficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />
+
+                <TextView
+                    android:id="@+id/instructionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instructionLabel"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/instruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/teal_700" />
+
+                <Button
+                    android:id="@+id/save_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/teal_700"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:layout_gravity="center"
+                    android:text="@string/save" />
+
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
