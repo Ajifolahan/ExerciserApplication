@@ -40,7 +40,7 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
         return MyViewHolder(view, context)
     }
 
-    // This function returns the size of the recipe list
+    // This function returns the size of the exercise list
     override fun getItemCount(): Int {
         return exerciseList.size
     }
@@ -83,7 +83,7 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
             val words = title.text.split("\\s+")
             val result = words.joinToString("+")
 
-            // Fetch the image for the recipe using Google Custom Search API
+            // Fetch the image for the exercise using Google Custom Search API
             fetchData(result)
         }
 

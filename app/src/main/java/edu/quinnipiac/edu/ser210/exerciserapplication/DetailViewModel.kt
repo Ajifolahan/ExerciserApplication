@@ -47,21 +47,6 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
             dao.delete(item)
         }
     }
-
-
-//    fun addFavorite(){
-//        viewModelScope.launch {
-//            val workout = Workout()
-//            workout.title = titleName
-//            workout.imageURL = imageURLName
-//            workout.type = typeName
-//            workout.muscle = muscleName
-//            workout.equipment = equipmentName
-//            workout.difficulty = difficultyName
-//            workout.instructions = instructionsName
-//            dao.insert(workout)
-//        }
-//    }
 }
 
 class DetailViewModelFactory(private val dao: WorkoutDao) : ViewModelProvider.Factory {

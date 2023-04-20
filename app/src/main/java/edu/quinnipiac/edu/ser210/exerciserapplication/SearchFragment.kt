@@ -21,6 +21,8 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         val searchButton = view.findViewById<Button>(R.id.search)
+        val favoriteButton = view.findViewById<Button>(R.id.favorites)
+
         val spinner = view.findViewById<Spinner>(R.id.spinner)
         setupSpinner(spinner) { option -> selectedOption = option }
 
@@ -30,12 +32,13 @@ class SearchFragment : Fragment() {
         val spinner3 = view.findViewById<Spinner>(R.id.spinner3)
         setupSpinner(spinner3) { option -> selectedOption3 = option }
 
+        //onClick listener for the search button
+        favoriteButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_searchFragment_to_favoriteFragment)
+        }
+
         //onclick listener for the search button
         searchButton.setOnClickListener {
-            //ALSO PLEASE TRY TO MAKE AN TOAST OR MESSAGE TO SHOW WHEN THERES NO RESULT FOR USER'S OPTIONS IN THE RESULT FRAGMENT
-
-            val navController = view.findNavController()
-
             if (selectedOption == "No selection" && selectedOption2 == "No selection" && selectedOption3 == "No selection") {
                 //if there are no selections, show a toast
                 Toast.makeText(

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_searchFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -48,4 +51,22 @@
             android:name="exercise_Id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="edu.quinnipiac.edu.ser210.exerciserapplication.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="edu.quinnipiac.edu.ser210.exerciserapplication.OptionsFragment"
+        android:label="fragment_options"
+        tools:layout="@layout/fragment_options" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="edu.quinnipiac.edu.ser210.exerciserapplication.HelpFragment"
+        android:label="HelpFragment" />
 </navigation>
