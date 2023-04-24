@@ -57,8 +57,8 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favoriteFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            android:id="@+id/action_favoriteFragment_to_favDetailsFragment"
+            app:destination="@id/favDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/optionsFragment"
@@ -69,4 +69,13 @@
         android:id="@+id/helpFragment"
         android:name="edu.quinnipiac.edu.ser210.exerciserapplication.HelpFragment"
         android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/favDetailsFragment"
+        android:name="edu.quinnipiac.edu.ser210.exerciserapplication.FavDetailsFragment"
+        android:label="fragment_fav_details"
+        tools:layout="@layout/fragment_fav_details" >
+        <argument
+            android:name="workout_id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
