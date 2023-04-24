@@ -20,7 +20,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentDetailsBinding
-import kotlinx.coroutines.flow.forEach
 
 class DetailsFragment : Fragment() {
 
@@ -46,7 +45,7 @@ class DetailsFragment : Fragment() {
             start()
         }
 
-        // Get recipe ID from arguments bundle
+        // Get exercise ID from arguments bundle
         val bundle = arguments
         if (bundle == null) {
             Log.e("DetailFragment", "DetailFragment did not receive hero id")
