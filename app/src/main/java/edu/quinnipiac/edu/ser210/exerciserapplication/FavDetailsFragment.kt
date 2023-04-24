@@ -10,6 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentFavDetailsBinding
 
@@ -42,6 +44,9 @@ class FavDetailsFragment : Fragment() {
         binding.apply {
             deleteButton.setOnClickListener { showConfirmationDialog()}
             name.text = workout.title
+            Glide.with(requireContext()).load(workout.imageURL)
+                .apply(RequestOptions().centerCrop())
+                .into(binding.itemImage)
             type.text = workout.type
             muscle.text = workout.muscle
             equipment.text = workout.equipment
@@ -81,6 +86,9 @@ class FavDetailsFragment : Fragment() {
         // the UI when the data actually changes.
         viewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
             workout = selectedItem
+            Glide.with(requireContext()).load(workout.imageURL)
+                .apply(RequestOptions().centerCrop())
+                .into(binding.itemImage)
             bind(workout)
         }
     }

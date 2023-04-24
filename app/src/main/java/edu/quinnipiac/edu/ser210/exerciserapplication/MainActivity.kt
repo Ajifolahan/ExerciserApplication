@@ -54,6 +54,12 @@ class MainActivity : AppCompatActivity() {
                 true
             }
 
+            R.id.favoriteFragment -> {
+                NavigationUI.onNavDestinationSelected(item!!, navController)
+                        || super.onOptionsItemSelected(item)
+                true
+            }
+
             // Handle the "Share" menu item selection
             R.id.action_share -> {
                 // Get the ShareActionProvider for the menu item

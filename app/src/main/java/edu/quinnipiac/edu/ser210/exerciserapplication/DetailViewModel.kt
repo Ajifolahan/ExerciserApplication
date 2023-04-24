@@ -14,9 +14,9 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
      * Inserts the new Item into database.
      */
     fun addFavorite(
-        titleName: String, typeName: String, muscleName: String, equipmentName: String,
+        titleName: String, typeName: String,imageURL: String, muscleName: String, equipmentName: String,
         difficultyName: String, instructionsName: String) {
-        val newItem = getNewItemEntry(titleName, typeName, muscleName, equipmentName, difficultyName, instructionsName)
+        val newItem = getNewItemEntry(titleName,imageURL, typeName, muscleName, equipmentName, difficultyName, instructionsName)
         insertItem(newItem)
     }
 
@@ -29,11 +29,12 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
         }
     }
 
-    private fun getNewItemEntry(titleName: String, typeName: String,muscleName: String, equipmentName: String,
+    private fun getNewItemEntry(titleName: String, typeName: String,imageURL:String, muscleName: String, equipmentName: String,
                                 difficultyName: String, instructionsName: String): Workout {
         return Workout(
             title = titleName,
             type = typeName,
+            imageURL = imageURL,
             muscle = muscleName,
             equipment = equipmentName,
             difficulty = difficultyName,
@@ -50,23 +51,7 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
         }
     }
 
-//    fun viewItem(item: Workout) {
-//        viewModelScope.launch {
-//            val workoutList = allItems
-//            workoutList.collect {
-//                Log.d(
-//                    "title",
-//                    "title: ${item.title}"
-//                )
-//            }
-//        }
-//    }
 }
-
-
-
-
-
 
 class DetailViewModelFactory(private val dao: WorkoutDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

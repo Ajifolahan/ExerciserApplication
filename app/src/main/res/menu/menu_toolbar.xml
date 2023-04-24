@@ -21,4 +21,10 @@
         android:title="@string/help"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/favoriteicon"
+        android:title="@string/favorites"
+        app:showAsAction="always" />
+
 </menu>

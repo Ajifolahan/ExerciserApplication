@@ -18,9 +18,12 @@ package edu.quinnipiac.edu.ser210.exerciserapplication
 import android.content.ClipData
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.ListItemBinding
 
 /**
@@ -52,7 +55,9 @@ class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(workout: Workout) {
-            //binding.itemImage = workout.imageURL
+            Glide.with(itemView.context).load(workout.imageURL)
+                .apply(RequestOptions().centerCrop())
+                .into(binding.itemImage)
             binding.itemTitle.text = workout.title
         }
     }

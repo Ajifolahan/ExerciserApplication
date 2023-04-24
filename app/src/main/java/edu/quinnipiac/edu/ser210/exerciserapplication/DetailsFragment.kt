@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
@@ -20,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentDetailsBinding
+import org.json.JSONObject
 
 class DetailsFragment : Fragment() {
 
@@ -29,6 +31,7 @@ class DetailsFragment : Fragment() {
         )
     }
     lateinit var item: Workout
+    lateinit var imageURL: String
 
     lateinit var requestQueue: RequestQueue
     var exercise_id: Int = 0
@@ -57,6 +60,7 @@ class DetailsFragment : Fragment() {
     private fun addNewItem() {
             viewModel.addFavorite(
                 binding.name.text.toString(),
+                imageURL,
                 binding.type.text.toString(),
                 binding.muscle.text.toString(),
                 binding.equipment.text.toString(),
@@ -92,9 +96,11 @@ class DetailsFragment : Fragment() {
 
         //on click update the database
         binding.saveButton.setOnClickListener {
+            Toast.makeText(context, "Added to Favorites List", Toast.LENGTH_SHORT).show()
             addNewItem()
         }
     }
+
 
     // Fetch an image of the recipe from the Google Custom Search API using Volley
     fun fetchData(input: String) {
@@ -104,7 +110,7 @@ class DetailsFragment : Fragment() {
             { response ->
                 if (response.getJSONArray("items").length() > 0) {
                     // Load the image into the ImageView using Glide
-                    val imageURL = response.getJSONArray("items").getJSONObject(0).getString("link")
+                   imageURL = response.getJSONArray("items").getJSONObject(0).getString("link")
                     Glide.with(requireContext()).load(imageURL)
                         .apply(RequestOptions().centerCrop())
                         .into(binding.itemImage)

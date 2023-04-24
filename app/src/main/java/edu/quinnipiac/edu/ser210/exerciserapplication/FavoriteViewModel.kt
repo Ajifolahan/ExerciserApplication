@@ -13,9 +13,9 @@ class FavoriteViewModel(val dao: WorkoutDao): ViewModel() {
      * Inserts the new Item into database.
      */
     fun addFavorite(
-        titleName: String, typeName: String, muscleName: String, equipmentName: String,
+        titleName: String, imageURL:String, typeName: String, muscleName: String, equipmentName: String,
         difficultyName: String, instructionsName: String) {
-        val newItem = getNewItemEntry(titleName, typeName, muscleName, equipmentName, difficultyName, instructionsName)
+        val newItem = getNewItemEntry(titleName,imageURL, typeName, muscleName, equipmentName, difficultyName, instructionsName)
         insertItem(newItem)
     }
 
@@ -28,10 +28,11 @@ class FavoriteViewModel(val dao: WorkoutDao): ViewModel() {
         }
     }
 
-    private fun getNewItemEntry(titleName: String, typeName: String,muscleName: String, equipmentName: String,
+    private fun getNewItemEntry(titleName: String, imageURL: String,typeName: String,muscleName: String, equipmentName: String,
                                 difficultyName: String, instructionsName: String): Workout {
         return Workout(
             title = titleName,
+            imageURL = imageURL,
             type = typeName,
             muscle = muscleName,
             equipment = equipmentName,

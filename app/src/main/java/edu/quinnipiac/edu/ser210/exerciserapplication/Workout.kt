@@ -8,7 +8,7 @@ data class Workout (
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var title: String,
- // var imageURL: String,
+    var imageURL: String,
     var type: String,
     var muscle: String,
     var equipment: String,

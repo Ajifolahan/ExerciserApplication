@@ -18,6 +18,7 @@ import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import androidx.lifecycle.lifecycleScope
 
 // Create an empty ArrayList to hold exercise items
 var exerciseList : ArrayList<ExerciseItem> = ArrayList()
@@ -90,12 +91,14 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
         // This function fetches the image for the given query string using Google Custom Search API
         fun fetchData(input: String) {
             // Construct the URL for the API request
-            val url = "https://www.googleapis.com/customsearch/v1?q=$input+exercise&cx=222f6e80dbc7642dc&imgSize=medium&searchType=image&key=${BuildConfig.api_key2}"
+            val url =
+                "https://www.googleapis.com/customsearch/v1?q=$input+exercise&cx=222f6e80dbc7642dc&imgSize=medium&searchType=image&key=${BuildConfig.api_key2}"
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->
                     if (response.getJSONArray("items").length() > 0) {
-                        val imageURL = response.getJSONArray("items").getJSONObject(0).getString("link")
+                        val imageURL =
+                            response.getJSONArray("items").getJSONObject(0).getString("link")
                         Glide.with(context).load(imageURL)
                             .apply(RequestOptions().centerCrop())
                             .into(image)

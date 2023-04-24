@@ -11,18 +11,18 @@
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="150dp"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/item_title"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
+            android:background="@color/beige"
             android:padding="30dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            android:background = "@color/beige"
             android:textSize="25sp" />
 
     </LinearLayout>
