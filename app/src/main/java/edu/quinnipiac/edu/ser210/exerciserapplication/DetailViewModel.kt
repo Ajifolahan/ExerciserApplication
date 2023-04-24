@@ -1,6 +1,8 @@
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
+import android.util.Log
 import androidx.lifecycle.*
+import kotlinx.coroutines.flow.forEach
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
@@ -47,7 +49,24 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
             dao.delete(item)
         }
     }
+
+//    fun viewItem(item: Workout) {
+//        viewModelScope.launch {
+//            val workoutList = allItems
+//            workoutList.collect {
+//                Log.d(
+//                    "title",
+//                    "title: ${item.title}"
+//                )
+//            }
+//        }
+//    }
 }
+
+
+
+
+
 
 class DetailViewModelFactory(private val dao: WorkoutDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

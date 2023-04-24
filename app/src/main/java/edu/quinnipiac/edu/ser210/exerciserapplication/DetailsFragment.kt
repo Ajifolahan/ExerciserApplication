@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.BasicNetwork
@@ -28,7 +30,6 @@ class DetailsFragment : Fragment() {
         )
     }
     lateinit var item: Workout
-    private lateinit var searchHistoryDao: WorkoutDao
 
     lateinit var requestQueue: RequestQueue
     var exercise_id: Int = 0
