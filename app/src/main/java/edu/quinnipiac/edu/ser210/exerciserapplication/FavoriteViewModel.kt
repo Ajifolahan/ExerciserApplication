@@ -10,16 +10,6 @@ class FavoriteViewModel(val dao: WorkoutDao): ViewModel() {
     val allItems: LiveData<List<Workout>> = dao.getAll().asLiveData()
 
     /**
-     * Inserts the new Item into database.
-     */
-    fun addFavorite(
-        titleName: String, imageURL:String, typeName: String, muscleName: String, equipmentName: String,
-        difficultyName: String, instructionsName: String) {
-        val newItem = getNewItemEntry(titleName,imageURL, typeName, muscleName, equipmentName, difficultyName, instructionsName)
-        insertItem(newItem)
-    }
-
-    /**
      * Launching a new coroutine to insert an item in a non-blocking way
      */
     private fun insertItem(item: Workout) {

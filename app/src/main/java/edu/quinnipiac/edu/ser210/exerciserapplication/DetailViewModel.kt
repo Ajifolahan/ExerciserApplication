@@ -42,15 +42,6 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
         )
     }
 
-    /**
-     * Launching a new coroutine to delete an item in a non-blocking way
-     */
-    fun deleteItem(item: Workout) {
-        viewModelScope.launch {
-            dao.delete(item)
-        }
-    }
-
 }
 
 class DetailViewModelFactory(private val dao: WorkoutDao) : ViewModelProvider.Factory {
