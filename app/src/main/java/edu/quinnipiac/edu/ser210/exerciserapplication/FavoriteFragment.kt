@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.os.Bundle
@@ -12,12 +13,14 @@ import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentFavori
 
 class FavoriteFragment : Fragment() {
 
+    //Creates connection to the DetailViewModel
     private val viewModel: FavoriteViewModel by activityViewModels {
         FavoriteViewModelFactory(
             (activity?.application as DetailsApplication).database.workoutDao()
         )
     }
 
+    //Viewbinding
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
@@ -25,7 +28,7 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,6 +36,8 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Creates a variable for the adapter
+        //Gives FavoriteAdapter onItemClicked variable
         val adapter = FavoriteAdapter {
             val action =
                 FavoriteFragmentDirections.actionFavoriteFragmentToFavDetailsFragment(it.id)

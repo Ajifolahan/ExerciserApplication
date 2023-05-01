@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.content.Context
@@ -10,8 +11,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.BasicNetwork
@@ -21,20 +20,22 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentDetailsBinding
-import org.json.JSONObject
 
 class DetailsFragment : Fragment() {
 
+    //Creates connection to the DetailViewModel
     private val viewModel: DetailViewModel by activityViewModels {
         DetailViewModelFactory(
             (activity?.application as DetailsApplication).database.workoutDao()
         )
     }
+
     lateinit var item: Workout
     lateinit var imageURL: String
 
     lateinit var requestQueue: RequestQueue
     var exercise_id: Int = 0
+
     private var _binding:FragmentDetailsBinding? = null
     private val binding get() = _binding !!
 
@@ -57,6 +58,7 @@ class DetailsFragment : Fragment() {
         exercise_id = DetailsFragmentArgs.fromBundle(bundle).exerciseId
     }
 
+    //adds item to database
     private fun addNewItem() {
             viewModel.addFavorite(
                 binding.name.text.toString(),
@@ -72,7 +74,7 @@ class DetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -124,6 +126,7 @@ class DetailsFragment : Fragment() {
         // Add the Volley request to the queue
         requestQueue.add(jsonObjectRequest)
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         // Hide keyboard.

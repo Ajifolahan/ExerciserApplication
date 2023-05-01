@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.os.Bundle
@@ -10,10 +11,6 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.BasicNetwork
-import com.android.volley.toolbox.DiskBasedCache
-import com.android.volley.toolbox.HurlStack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,12 +53,18 @@ class ResultFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerAdapter
 
+        //creates mutableMap
         val options = mutableMapOf<String, String>()
+
+        //calls addOptionToMap to add user selection
         addOptionToMap(selectedOption, "type", options)
         addOptionToMap(selectedOption2, "muscle", options)
         addOptionToMap(selectedOption3, "difficulty", options)
 
+        //sets variable with results from mutuableMap of querys
         val apiInterface = APiInterface.create().getExercises(options)
+
+        //calls list of exercises from api
         if (apiInterface != null) {
             apiInterface.enqueue(object : Callback<ArrayList<ExerciseItem?>?>{
                 override fun onResponse(
@@ -69,18 +72,17 @@ class ResultFragment : Fragment() {
                     response: Response<ArrayList<ExerciseItem?>?>
                 ) {
                     // Set the retrieved list of exercises to the adapter
-                    if (response?.body() != null) {
-                        recyclerAdapter.setExerciseListItems(response?.body() !! as ArrayList<ExerciseItem>)
+                    if (response.body() != null) {
+                        recyclerAdapter.setExerciseListItems(response.body()!! as ArrayList<ExerciseItem>)
                         if(recyclerAdapter.itemCount == 0) {
-                            Toast.makeText(context, "There are no results for your search.\nPlease go back and try again", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "There are no results for your search.\nPlease go back and try again" , Toast.LENGTH_LONG).show()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<ArrayList<ExerciseItem?>?>, t: Throwable) {
                     // Handle the case where the API call fails
-                    if (t != null)
-                        t.message?.let {Log.d("onFailure", it) }
+                    t.message?.let {Log.d("onFailure", it) }
                 }
 
             })
@@ -90,14 +92,11 @@ class ResultFragment : Fragment() {
 
     }
 
+    //Adds spinner selection to a mutableMap
     private fun addOptionToMap(option: String?, key: String, options: MutableMap<String, String>) {
         if (option != null && option != "No selection") {
             options[key] = option
         }
-    }
-
-    override fun onDestroyView(){
-        super.onDestroyView()
     }
 
 }

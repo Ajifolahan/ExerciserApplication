@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.content.Intent
@@ -49,13 +50,13 @@ class MainActivity : AppCompatActivity() {
         return when(id){
             // Handle the "Settings" menu item selection
             R.id.optionsFragment -> {
-                NavigationUI.onNavDestinationSelected(item!!, navController)
+                NavigationUI.onNavDestinationSelected(item, navController)
                         || super.onOptionsItemSelected(item)
                 true
             }
 
             R.id.favoriteFragment -> {
-                NavigationUI.onNavDestinationSelected(item!!, navController)
+                NavigationUI.onNavDestinationSelected(item, navController)
                         || super.onOptionsItemSelected(item)
                 true
             }
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Handle the navigation menu item selection
-            else -> NavigationUI.onNavDestinationSelected(item!!, navController)
+            else -> NavigationUI.onNavDestinationSelected(item, navController)
                     || super.onOptionsItemSelected(item)
             //it currently navigates to a new screen so just make the screen tell us about the app and AI
             //for the help options

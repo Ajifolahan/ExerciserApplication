@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.navigation.findNavController
 
 
 class SearchFragment : Fragment() {
+
     var selectedOption: String? = null
     var selectedOption2: String? = null
     var selectedOption3: String? = null
