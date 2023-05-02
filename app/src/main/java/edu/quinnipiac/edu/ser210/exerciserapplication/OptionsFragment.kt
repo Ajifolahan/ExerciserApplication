@@ -1,3 +1,4 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.annotation.SuppressLint
@@ -15,7 +16,7 @@ class OptionsFragment : Fragment() {
     private val binding get() = _binding !!
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         // Inflate the layout for this using view binding fragment
         _binding = FragmentOptionsBinding.inflate(inflater, container, false)

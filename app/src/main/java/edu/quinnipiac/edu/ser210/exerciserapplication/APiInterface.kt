@@ -1,5 +1,4 @@
 //@Authors: Camryn Keller and Momoreoluwa Ayinde
-
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import okhttp3.OkHttpClient
@@ -9,7 +8,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.Query
 import retrofit2.http.QueryMap
 
 interface APiInterface {
@@ -23,13 +21,13 @@ interface APiInterface {
     companion object {
 
         // base URL for the REST API
-        var BASE_URL = "https://exercises-by-api-ninjas.p.rapidapi.com"
+        private var BASE_URL = "https://exercises-by-api-ninjas.p.rapidapi.com"
 
         // method for creating instances of the interface using Retrofit
         fun create() : APiInterface {
 
             val logging = HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+            logging.level = HttpLoggingInterceptor.Level.BODY
 
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor(logging)

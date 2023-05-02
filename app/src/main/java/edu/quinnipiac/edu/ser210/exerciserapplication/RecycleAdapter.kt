@@ -18,12 +18,12 @@ import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import androidx.lifecycle.lifecycleScope
 
 // Create an empty ArrayList to hold exercise items
 var exerciseList : ArrayList<ExerciseItem> = ArrayList()
 
-class RecyclerAdapter(val context: Context, var navController: NavController) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class RecyclerAdapter(val context: Context, var navController: NavController) :
+    RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     // Declare a RequestQueue object to handle HTTP requests using Volley library
     lateinit var requestQueue: RequestQueue
@@ -40,6 +40,7 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         return MyViewHolder(view, context)
     }
+
 
     // This function returns the size of the exercise list
     override fun getItemCount(): Int {
@@ -62,8 +63,8 @@ class RecyclerAdapter(val context: Context, var navController: NavController) : 
         RecyclerView.ViewHolder(itemView) {
 
         // Declare the UI elements used in this view holder
-        private val title: TextView = itemView!!.findViewById(R.id.item_title)
-        val image: ImageView = itemView!!.findViewById(R.id.item_image)
+        private val title: TextView = itemView.findViewById(R.id.item_title)
+        private val image: ImageView = itemView.findViewById(R.id.item_image)
         private var pos: Int = 0
 
         // Set an on-click listener to navigate to the DetailsFragment
