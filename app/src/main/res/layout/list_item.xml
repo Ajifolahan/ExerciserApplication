@@ -20,7 +20,6 @@
             android:id="@+id/item_title"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:background="@color/beige"
             android:padding="30dp"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textSize="25sp" />
