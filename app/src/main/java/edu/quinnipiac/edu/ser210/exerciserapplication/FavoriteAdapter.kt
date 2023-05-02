@@ -15,16 +15,15 @@
  */
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
-import android.content.ClipData
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.ListItemBinding
+import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FavoriteItemBinding
+
 
 /**
  * [ListAdapter] implementation for the recyclerview.
@@ -33,13 +32,15 @@ import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.ListItemBindin
 class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
     ListAdapter<Workout, FavoriteAdapter.ItemViewHolder>(DiffCallback) {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-           ListItemBinding.inflate(
-               LayoutInflater.from(
-                   parent.context
-               )
-           )
+            FavoriteItemBinding.inflate(
+                LayoutInflater.from(
+                    parent.context
+                )
+            )
         )
     }
 
@@ -48,10 +49,13 @@ class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
         holder.itemView.setOnClickListener {
             onItemClicked(current)
         }
+
         holder.bind(current)
+
+
     }
 
-    class ItemViewHolder(private var binding: ListItemBinding) :
+    class ItemViewHolder(private var binding: FavoriteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(workout: Workout) {
@@ -61,7 +65,7 @@ class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
             binding.itemTitle.text = workout.title
         }
     }
-
+    
 
 
     companion object {
