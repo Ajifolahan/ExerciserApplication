@@ -16,6 +16,7 @@
     <string name="difficultyLabel">Difficulty: </string>
     <string name="instructionLabel">Instruction: </string>
     <string name="save">FAVORITE</string>
+    <string name="delete">DELETE</string>
     <string name="share">Share</string>
     <string name="settings">Settings</string>
     <string name="help">Help</string>
@@ -23,6 +24,18 @@
     <string name="pick">Pick a mode for the background</string>
     <string name="night">Night Mode</string>
     <string name="light">Light Mode</string>
+    <string name="apiInfoTitle">API Information:</string>
+    <string name="api_Info">The Exercises API provides access to a comprehensive list of thousands
+        of exercises targeting every major muscle group.</string>
+    <string name="appInfoTitle">App Information:</string>
+    <string name="app_Info">This app allows users, beginners or experts, who want to access exercise
+        information that can guide them through their fitness journey. Users are able to access
+        information about various exercises that fit their needs using the three dropdown search options.
+        Users are also able to save exercises to their favorites by clicking on the favorite button in
+        exercise details. Happy Exercising!</string>
+    <string name="developerTitle">Developer Information:</string>
+    <string name="developerInfo">The developers are Camryn Keller and Momoreoluwa Ayinde, both are students
+        SER210 at Quinnipiac University. </string>
 
 
     <string-array name="type_array">

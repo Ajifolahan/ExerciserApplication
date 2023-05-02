@@ -8,6 +8,7 @@
     tools:context=".OptionsFragment">
 
     <TextView
+        android:id="@+id/apiTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -15,9 +16,10 @@
         android:layout_gravity = "start"
         android:textSize="20sp"
         android:textColor = "@color/blue"
-        android:text="API Information:" />
+        android:text="@string/apiInfoTitle" />
 
     <TextView
+        android:id="@+id/apiInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -26,10 +28,11 @@
         android:layout_gravity="start"
         android:textSize="20sp"
         android:textColor = "@color/blue"
-        android:text="Testing if this works"
+        android:text="@string/api_Info"
         />
 
     <TextView
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -38,10 +41,11 @@
         android:layout_gravity="start"
         android:textSize="20sp"
         android:textColor = "@color/blue"
-        android:text="App Information:"
+        android:text="@string/appInfoTitle"
         />
 
     <TextView
+        android:id="@+id/appInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -50,7 +54,33 @@
         android:layout_gravity="start"
         android:textSize="20sp"
         android:textColor = "@color/blue"
-        android:text="Testing if this works part 2"
+        android:text="@string/app_Info"
+        />
+
+    <TextView
+        android:id="@+id/developTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="start"
+        android:textSize="20sp"
+        android:textColor = "@color/blue"
+        android:text="@string/developerTitle"
+        />
+
+    <TextView
+        android:id="@+id/developInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="start"
+        android:textSize="20sp"
+        android:textColor = "@color/blue"
+        android:text="@string/developerInfo"
         />
 
 
