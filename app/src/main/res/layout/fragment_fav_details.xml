@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context = ".DetailsFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="workout"
+            type="edu.quinnipiac.edu.ser210.exerciserapplication.Workout" />
+    </data>
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    tools:context = ".DetailsFragment"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_margin="8dp">-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,7 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.title}"/>
 
             <TextView
                 android:id="@+id/typeLabel"
@@ -66,7 +78,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.type}"/>
 
             <TextView
                 android:id="@+id/muscleLabel"
@@ -83,7 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.muscle}"/>
 
             <TextView
                 android:id="@+id/equipmentLabel"
@@ -100,7 +114,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.equipment}"/>
 
             <TextView
                 android:id="@+id/difficultyLabel"
@@ -117,7 +132,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.difficulty}"/>
 
             <TextView
                 android:id="@+id/instructionLabel"
@@ -134,10 +150,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/teal_700" />
+                android:textColor="@color/teal_700"
+                android:text="@{workout.instructions}"/>
 
 
 
         </LinearLayout>
     </ScrollView>
-</com.google.android.material.card.MaterialCardView>
+</layout>
