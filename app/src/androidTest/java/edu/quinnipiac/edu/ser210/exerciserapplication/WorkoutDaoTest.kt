@@ -4,16 +4,16 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.WorkoutDao
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.WorkoutDatabase
 import junit.framework.Assert.assertEquals
 import org.junit.runner.RunWith
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking
-import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
 class WorkoutDaoTest {

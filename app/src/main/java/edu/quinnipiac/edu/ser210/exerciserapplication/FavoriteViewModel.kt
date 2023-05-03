@@ -2,6 +2,8 @@
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import androidx.lifecycle.*
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.WorkoutDao
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(val dao: WorkoutDao): ViewModel() {

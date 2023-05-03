@@ -1,5 +1,5 @@
 //@Authors: Camryn Keller and Momoreoluwa Ayinde
-package edu.quinnipiac.edu.ser210.exerciserapplication
+package edu.quinnipiac.edu.ser210.exerciserapplication.data
 
 import android.content.Context
 import androidx.room.Database

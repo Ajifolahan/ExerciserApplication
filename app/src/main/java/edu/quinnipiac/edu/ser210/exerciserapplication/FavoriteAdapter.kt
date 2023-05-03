@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.ListItemBinding
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FavoriteItemBinding
 
@@ -52,9 +53,6 @@ class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
             binding.itemTitle.text = workout.title
         }
     }
-    
-
-
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Workout>(){
             override fun areItemsTheSame(oldItem: Workout, newItem: Workout): Boolean {

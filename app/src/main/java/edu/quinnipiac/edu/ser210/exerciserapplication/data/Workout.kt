@@ -1,5 +1,5 @@
 //@Authors: Camryn Keller and Momoreoluwa Ayinde
-package edu.quinnipiac.edu.ser210.exerciserapplication
+package edu.quinnipiac.edu.ser210.exerciserapplication.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
