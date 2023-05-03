@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
 import edu.quinnipiac.edu.ser210.exerciserapplication.databinding.FragmentFavDetailsBinding
 
 class FavDetailsFragment : Fragment() {

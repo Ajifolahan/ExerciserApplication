@@ -1,7 +1,8 @@
 //@Authors: Camryn Keller and Momoreoluwa Ayinde
-package edu.quinnipiac.edu.ser210.exerciserapplication
+package edu.quinnipiac.edu.ser210.exerciserapplication.data
 
 import androidx.room.*
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -14,10 +15,10 @@ interface WorkoutDao {
     fun getItem(id: Int): Flow<Workout>
 
     @Insert
-    suspend fun insert(workout:Workout)
+    suspend fun insert(workout: Workout)
 
     @Delete
-    suspend fun delete(workout:Workout)
+    suspend fun delete(workout: Workout)
 
 
 

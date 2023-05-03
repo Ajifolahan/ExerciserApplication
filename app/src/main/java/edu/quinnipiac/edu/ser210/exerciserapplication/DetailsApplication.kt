@@ -2,6 +2,8 @@
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import android.app.Application
+import edu.quinnipiac.edu.ser210.exerciserapplication.data.WorkoutDatabase
+
 class DetailsApplication : Application() {
     // Using by lazy so the database is only created when needed
     // rather than when the application starts
