@@ -10,13 +10,6 @@
             type="edu.quinnipiac.edu.ser210.exerciserapplication.Workout" />
     </data>
 
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    tools:context = ".DetailsFragment"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:layout_margin="8dp">-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -152,7 +145,6 @@
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="@color/teal_700"
                 android:text="@{workout.instructions}"/>
-
 
 
         </LinearLayout>

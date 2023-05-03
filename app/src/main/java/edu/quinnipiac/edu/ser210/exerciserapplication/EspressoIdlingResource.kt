@@ -1,3 +1,5 @@
+//@Authors: Camryn Keller and Momoreoluwa Ayinde
+
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
 import androidx.test.espresso.idling.CountingIdlingResource
