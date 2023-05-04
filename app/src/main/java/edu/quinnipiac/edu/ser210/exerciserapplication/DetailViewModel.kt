@@ -10,10 +10,16 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
 
      //Inserts the new Item into database.
     fun addFavorite(
-        titleName: String, typeName: String,imageURL: String, muscleName: String, equipmentName: String,
-        difficultyName: String, instructionsName: String) {
-        val newItem = getNewItemEntry(titleName,imageURL, typeName, muscleName, equipmentName, difficultyName, instructionsName)
-        insertItem(newItem)
+         titleName: String, typeName: String?,
+         imageURL: String?, muscleName: String, equipmentName: String,
+         difficultyName: String, instructionsName: String) {
+        val newItem = imageURL?.let {
+            getNewItemEntry(titleName,
+                it, typeName, muscleName, equipmentName, difficultyName, instructionsName)
+        }
+         if (newItem != null) {
+             insertItem(newItem)
+         }
     }
 
      //Launching a new coroutine to insert an item in a non-blocking way
@@ -24,7 +30,7 @@ class DetailViewModel(private val dao: WorkoutDao): ViewModel() {
     }
 
     //Gets an item from the database
-    private fun getNewItemEntry(titleName: String, typeName: String,imageURL:String, muscleName: String, equipmentName: String,
+    private fun getNewItemEntry(titleName: String, typeName: String,imageURL:String?, muscleName: String, equipmentName: String,
                                 difficultyName: String, instructionsName: String): Workout {
         return Workout(
             title = titleName,

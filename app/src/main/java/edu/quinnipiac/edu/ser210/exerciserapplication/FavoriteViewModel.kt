@@ -1,6 +1,7 @@
 //@Authors: Camryn Keller and Momoreoluwa Ayinde
 package edu.quinnipiac.edu.ser210.exerciserapplication
 
+import androidx.databinding.Bindable
 import androidx.lifecycle.*
 import edu.quinnipiac.edu.ser210.exerciserapplication.data.Workout
 import edu.quinnipiac.edu.ser210.exerciserapplication.data.WorkoutDao
@@ -9,7 +10,7 @@ import kotlinx.coroutines.launch
 class FavoriteViewModel(val dao: WorkoutDao): ViewModel() {
 
     // Cache all items form the database using LiveData.
-    val allItems: LiveData<List<Workout>> = dao.getAll().asLiveData()
+     val allItems: LiveData<List<Workout>> = dao.getAll().asLiveData()
 
 
     // Launching a new coroutine to delete an item in a non-blocking way

@@ -41,16 +41,19 @@ class FavoriteAdapter(private val onItemClicked: (Workout) -> Unit) :
 
     }
 
-//    class ItemViewHolder(private var binding: FavoriteItemBinding) :
     //Binds title and picture to card
     class ItemViewHolder(private var binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(workout: Workout) {
-            Glide.with(itemView.context).load(workout.imageURL)
-                .apply(RequestOptions().centerCrop())
-                .into(binding.itemImage)
-            binding.itemTitle.text = workout.title
+            if(workout.imageURL == null){
+                binding.itemTitle.text = workout.title
+            } else {
+                Glide.with(itemView.context).load(workout.imageURL)
+                    .apply(RequestOptions().centerCrop())
+                    .into(binding.itemImage)
+                binding.itemTitle.text = workout.title
+            }
         }
     }
     companion object {

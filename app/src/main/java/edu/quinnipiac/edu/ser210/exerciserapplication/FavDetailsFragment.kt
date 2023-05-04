@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.Bindable
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -35,7 +37,9 @@ class FavDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFavDetailsBinding.inflate(inflater, container, false)
+        _binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_fav_details, container, false
+        )
         return binding.root
     }
 
@@ -44,15 +48,15 @@ class FavDetailsFragment : Fragment() {
     private fun bind(workout: Workout) {
         binding.apply {
             deleteButton.setOnClickListener { showConfirmationDialog()}
-            name.text = workout.title
+            name.text
             Glide.with(requireContext()).load(workout.imageURL)
                 .apply(RequestOptions().centerCrop())
-                .into(binding.itemImage)
-            type.text = workout.type
-            muscle.text = workout.muscle
-            equipment.text = workout.equipment
-            difficulty.text = workout.difficulty
-            instruction.text = workout.instructions
+                .into(itemImage)
+            type.text
+            muscle.text
+            equipment.text
+            difficulty.text
+            instruction.text
         }
     }
 
@@ -85,6 +89,7 @@ class FavDetailsFragment : Fragment() {
         // the UI when the data actually changes.
         viewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
             workout = selectedItem
+            binding.workout = workout
             Glide.with(requireContext()).load(workout.imageURL)
                 .apply(RequestOptions().centerCrop())
                 .into(binding.itemImage)

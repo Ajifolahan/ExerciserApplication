@@ -32,7 +32,7 @@ class DetailsFragment : Fragment() {
     }
 
     lateinit var item: Workout
-    lateinit var imageURL: String
+    var imageURL: String? = null
 
     lateinit var requestQueue: RequestQueue
     var exercise_id: Int = 0
@@ -61,15 +61,27 @@ class DetailsFragment : Fragment() {
 
     //adds item to database
     private fun addNewItem() {
+        if (imageURL == null) {
             viewModel.addFavorite(
                 binding.name.text.toString(),
-                imageURL,
+                null,
                 binding.type.text.toString(),
                 binding.muscle.text.toString(),
                 binding.equipment.text.toString(),
                 binding.difficulty.text.toString(),
                 binding.instruction.text.toString()
             )
+        } else {
+            viewModel.addFavorite(
+                binding.name.text.toString(),
+                imageURL!!,
+                binding.type.text.toString(),
+                binding.muscle.text.toString(),
+                binding.equipment.text.toString(),
+                binding.difficulty.text.toString(),
+                binding.instruction.text.toString()
+            )
+        }
     }
 
     override fun onCreateView(
