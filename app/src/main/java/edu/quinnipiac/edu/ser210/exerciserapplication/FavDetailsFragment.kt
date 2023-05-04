@@ -37,6 +37,7 @@ class FavDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //dataBinding integration
         _binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_fav_details, container, false
         )
@@ -48,6 +49,7 @@ class FavDetailsFragment : Fragment() {
     private fun bind(workout: Workout) {
         binding.apply {
             deleteButton.setOnClickListener { showConfirmationDialog()}
+            //uses databinding from the UI to connect to the fragment.
             name.text
             Glide.with(requireContext()).load(workout.imageURL)
                 .apply(RequestOptions().centerCrop())
@@ -89,6 +91,7 @@ class FavDetailsFragment : Fragment() {
         // the UI when the data actually changes.
         viewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
             workout = selectedItem
+            //databinding integration so it knows what variable i'm referencing in the UI
             binding.workout = workout
             Glide.with(requireContext()).load(workout.imageURL)
                 .apply(RequestOptions().centerCrop())
